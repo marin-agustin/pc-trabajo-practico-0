@@ -19,6 +19,6 @@ public class AvionComercial extends AvionHelice {
     }
 
     public int obtenerModulo() {
-        return getHpMotor() + capacidadPasajeros;
+        return super.obtenerModulo() + capacidadPasajeros;
     }
 }
