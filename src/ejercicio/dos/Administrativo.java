@@ -24,4 +24,11 @@ public class Administrativo extends Empleado {
         this.adicionalAsistencia = adicionalAsistencia;
     }
 
+    //metodos
+    public String getDatos() {
+        String datos = super.getDatos();
+
+        return datos += ", adicional por categoria: " + String.valueOf(adicionalCategoria) + ", adicional por asistencia: " + String.valueOf(adicionalAsistencia);
+    }
+
 }
