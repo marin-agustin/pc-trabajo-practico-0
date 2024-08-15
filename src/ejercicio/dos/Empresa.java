@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Empresa {
 
     //atributos
-    private ArrayList<Empleado> empleados = new ArrayList<>();
+    private final ArrayList<Empleado> empleados = new ArrayList<>();
 
     //constructor
     public Empresa(Empleado empleado) {
@@ -40,6 +40,18 @@ public class Empresa {
         }
 
         return listaEmpleados;
+    }
+    
+    public ArrayList<Long> cobroMensualEmpleados() {
+        ArrayList<Long> salarioEmpleados = new ArrayList<>();
+        
+        if (!(this.empleados.isEmpty())) {
+            for (int i = 0; i < this.empleados.size(); i++) {
+                salarioEmpleados.add(this.empleados.get(i).obtenerSalario());
+            }
+        }
+        
+        return salarioEmpleados;
     }
 
 }

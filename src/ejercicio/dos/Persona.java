@@ -15,11 +15,11 @@ import java.time.format.DateTimeFormatter;
 public class Persona {
 
     //atributos
-    private String nombre;
-    private long dni;
-    private String direccion;
-    private LocalDate fechaNacimiento;
-    private String sexo;
+    private final String nombre;
+    private final long dni;
+    private final String direccion;
+    private final LocalDate fechaNacimiento;
+    private final String sexo;
 
     //constructor
     public Persona(String nombre, long dni, String direccion, LocalDate fechaNacimiento, String sexo) {

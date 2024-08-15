@@ -16,10 +16,10 @@ import java.time.format.DateTimeFormatter;
 public class Empleado extends Persona {
 
     //atributos
-    private long salario;
-    private String legajo;
-    private long porcentajeAntiguedad;
-    private LocalDate fechaIngreso;
+    private final long salario;
+    private final String legajo;
+    private final long porcentajeAntiguedad;
+    private final LocalDate fechaIngreso;
 
     //constructor
     public Empleado(String nombre, long dni, String direccion, LocalDate fechaDeNacimiento, String sexo, long salario, String legajo, long porcentajeAntiguedad, LocalDate fechaIngreso) {
@@ -41,10 +41,17 @@ public class Empleado extends Persona {
         return verificado;
     }
 
+    @Override
     public String getDatos() {
         String datos = super.getDatos();
         DateTimeFormatter fomartoFechaIngreso = DateTimeFormatter.ofPattern("dd/MM/yyy");
 
         return datos += ", salario: " + String.valueOf(salario) + ", legajo: " + legajo + ", porcentaje de antiguedad: " + String.valueOf(porcentajeAntiguedad) + ", fecha de ingreso: " + fechaIngreso.format(fomartoFechaIngreso);
+    }
+
+    public long obtenerSalario() {
+        long salarioMensual = salario * porcentajeAntiguedad;
+
+        return salarioMensual;
     }
 }

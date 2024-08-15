@@ -14,8 +14,8 @@ import java.time.LocalDate;
 public class Administrativo extends Empleado {
 
     //atributos
-    private long adicionalCategoria;
-    private long adicionalAsistencia;
+    private final long adicionalCategoria;
+    private final long adicionalAsistencia;
 
     //constructor
     public Administrativo(String nombre, long dni, String direccion, LocalDate fechaDeNacimiento, String sexo, long salario, String legajo, long porcentajeAntiguedad, LocalDate fechaIngreso, long adicionalCategoria, long adicionalAsistencia) {
@@ -25,10 +25,18 @@ public class Administrativo extends Empleado {
     }
 
     //metodos
+    @Override
     public String getDatos() {
         String datos = super.getDatos();
 
         return datos += ", adicional por categoria: " + String.valueOf(adicionalCategoria) + ", adicional por asistencia: " + String.valueOf(adicionalAsistencia);
+    }
+    
+    @Override
+    public long obtenerSalario() {
+        long salarioMensual = super.obtenerSalario() + adicionalCategoria + adicionalAsistencia;
+        
+        return salarioMensual;
     }
 
 }
